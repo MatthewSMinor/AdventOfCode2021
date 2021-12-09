@@ -5,7 +5,7 @@ namespace AdventOfCode2021Day1
 {
     public static class Day3
     {
-        private static readonly string[] text = System.IO.File.ReadAllLines(@"D:\Programs\AdventOfCode2021Day3.txt");
+        private static readonly string[] text = System.IO.File.ReadAllLines(@"D:\Programs\testing.txt");
 
         public static void Part1()
         {
@@ -83,6 +83,7 @@ namespace AdventOfCode2021Day1
             Console.WriteLine(gammaD * epsilonD);
         }
 
+        // Part two is not working here not sure why
         public static void Part2()
         {
             var oxyList = text.ToList();
