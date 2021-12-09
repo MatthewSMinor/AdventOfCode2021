@@ -82,5 +82,60 @@ namespace AdventOfCode2021Day1
 
             Console.WriteLine(gammaD * epsilonD);
         }
+
+        public static void Part2()
+        {
+            var oxyList = text.ToList();
+            var scrubberList = text.ToList();
+            var ones = 0;
+            var zeros = 0;
+            for (int i = 0; i < 12; i++)
+            {
+                text.ToList().ForEach(x =>
+                {
+                    if (x[i] == '1')
+                        ones++;
+                    else
+                        zeros++;
+                });
+                if (ones>=zeros)
+                    oxyList.RemoveAll(x => x[i] == '0');
+                else
+                    oxyList.RemoveAll(x => x[i] == '1');
+                ones = 0;
+                zeros = 0;
+                if (oxyList.Count <= 1)
+                    break;
+            }
+            Console.WriteLine("Oxygen:==========");
+            oxyList.ForEach(x => Console.WriteLine(x));
+
+            ones = 0;
+            zeros = 0;
+            for (int i = 0; i < 12; i++)
+            {
+                text.ToList().ForEach(x =>
+                {
+                    if (x[i] == '1')
+                        ones++;
+                    else
+                        zeros++;
+                });
+                if (ones >= zeros)
+                    scrubberList.RemoveAll(x => x[i] == '1');
+                else
+                    scrubberList.RemoveAll(x => x[i] == '0');
+
+                ones = 0;
+                zeros = 0;
+                if (scrubberList.Count <= 1)
+                    break;
+            }
+
+            Console.WriteLine("Scrubber: ==========");
+            scrubberList.ForEach(x => Console.WriteLine(x));
+
+            Console.WriteLine(Convert.ToInt32(oxyList.First().ToString(), 2) * Convert.ToInt32(scrubberList.First().ToString(), 2));
+        }
     }
 }
