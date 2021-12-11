@@ -83,7 +83,6 @@ namespace AdventOfCode2021Day1
             Console.WriteLine(gammaD * epsilonD);
         }
 
-        // Part two is not working here not sure why
         public static void Part2()
         {
             var oxyList = text.ToList();
@@ -92,7 +91,7 @@ namespace AdventOfCode2021Day1
 
             for (int i = 0; i < 12; i++)
             {
-                whatDo = text.Select(x => int.Parse(x[i].ToString())).Sum() >= text.Length / 2;
+                whatDo = oxyList.Select(x => int.Parse(x[i].ToString())).Sum() >= oxyList.Length / 2;
                 if (whatDo)
                     oxyList.RemoveAll(x => x[i] == '0');
                 else
@@ -103,7 +102,7 @@ namespace AdventOfCode2021Day1
 
             for (int i = 0; i < 12; i++)
             {
-                whatDo = text.Select(x => int.Parse(x[i].ToString())).Sum() >= text.Length / 2;
+                whatDo = scrubberList.Select(x => int.Parse(x[i].ToString())).Sum() >= scrubberList.Length / 2;
                 if (whatDo)
                     scrubberList.RemoveAll(x => x[i] == '1');
                 else
